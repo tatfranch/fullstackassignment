@@ -5,7 +5,6 @@ export interface TshirtDocument extends Document {
   colour: string
   size: string
   reference: number
-  quantity: number
   prize: number
   orderID: number[]
 }
@@ -16,7 +15,6 @@ const TshirtSchema = new Schema<TshirtDocument>(
     colour: { type: String },
     size: { type: String, required: true },
     reference: { type: Number, required: true, unique: true },
-    quantity: { type: Number, required: true },
     prize: { type: Number, required: true },
     orderID: [
       {
