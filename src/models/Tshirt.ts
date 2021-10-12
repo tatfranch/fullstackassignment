@@ -1,6 +1,6 @@
 import { Schema, model, Document } from 'mongoose'
 
-interface Tshirt extends Document {
+export interface TshirtDocument extends Document {
   itemType: string
   colour: string
   size: string
@@ -10,7 +10,7 @@ interface Tshirt extends Document {
   orderID: number[]
 }
 
-const TshirtSchema = new Schema<Tshirt>(
+const TshirtSchema = new Schema<TshirtDocument>(
   {
     itemType: { type: String, required: true },
     colour: { type: String },
