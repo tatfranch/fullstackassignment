@@ -19,7 +19,6 @@ app.use(express.json())
 app.use(lusca.xframe('SAMEORIGIN'))
 app.use(lusca.xssProtection(true))
 
-// Use movie router
 app.use('/api/v1/tshirts', tshirtsRouter)
 
 // Custom API error handler

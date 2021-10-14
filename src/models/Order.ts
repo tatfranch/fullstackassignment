@@ -9,6 +9,7 @@ export interface OrderDocument extends Document {
   customerAdress: string
   shipmentDate: number
   productCart: string[]
+  customer: string[]
 }
 
 const OrderSchema = new Schema<OrderDocument>(
@@ -19,6 +20,12 @@ const OrderSchema = new Schema<OrderDocument>(
     customerAdress: { type: String, required: true },
     shipmentDate: { type: Number, required: true },
     productCart: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Tshirt',
+      },
+    ],
+    customer: [
       {
         type: Schema.Types.ObjectId,
         ref: 'Customer',
