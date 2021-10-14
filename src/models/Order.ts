@@ -2,11 +2,6 @@ import { Schema, model, Document } from 'mongoose'
 
 export interface OrderDocument extends Document {
   orderNumber: number
-
-  //CUSTOMER INFO:
-  customerFirstName: string
-  customerLastName: string
-  customerAdress: string
   shipmentDate: number
   productCart: string[]
   customer: string[]
@@ -15,9 +10,6 @@ export interface OrderDocument extends Document {
 const OrderSchema = new Schema<OrderDocument>(
   {
     orderNumber: { type: Number, unique: true },
-    customerFirstName: { type: String, required: true },
-    customerLastName: { type: String, required: true },
-    customerAdress: { type: String, required: true },
     shipmentDate: { type: Number, required: true },
     productCart: [
       {
