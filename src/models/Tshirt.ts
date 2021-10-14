@@ -1,21 +1,18 @@
 import { Schema, model, Document } from 'mongoose'
 
 export interface TshirtDocument extends Document {
-  itemType: string
-  colour: string
-  size: string
-  reference: number
-  prize: number
-  orderID: number[]
+  productType: string[]
+  orderID: string[]
 }
 
 const TshirtSchema = new Schema<TshirtDocument>(
   {
-    itemType: { type: String, required: true },
-    colour: { type: String },
-    size: { type: String, required: true },
-    reference: { type: Number, required: true, unique: true },
-    prize: { type: Number, required: true },
+    productType: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'VariantTshirt',
+      },
+    ],
     orderID: [
       {
         type: Schema.Types.ObjectId,
