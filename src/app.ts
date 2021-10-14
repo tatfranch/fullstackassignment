@@ -2,7 +2,7 @@ import express from 'express'
 import lusca from 'lusca'
 import dotenv from 'dotenv'
 
-import tshirtsRouter from './routers/tshirts'
+import tshirtRouter from './routers/tshirt'
 import apiErrorHandler from './middlewares/apiErrorHandler'
 import apiContentType from './middlewares/apiContentType'
 import compression from 'compression'
@@ -19,7 +19,7 @@ app.use(express.json())
 app.use(lusca.xframe('SAMEORIGIN'))
 app.use(lusca.xssProtection(true))
 
-app.use('/api/v1/tshirts', tshirtsRouter)
+app.use('/api/v1/tshirts', tshirtRouter)
 
 // Custom API error handler
 app.use(apiErrorHandler)

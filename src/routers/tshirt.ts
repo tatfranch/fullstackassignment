@@ -5,7 +5,7 @@ import {
   createTshirt,
   updateTshirt,
   deleteTshirt,
-} from '../controllers/tshirts'
+} from '../controllers/tshirt'
 
 const router = Router()
 
