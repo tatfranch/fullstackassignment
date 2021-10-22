@@ -5,7 +5,7 @@ import { Strategy } from 'passport-jwt'
 
 import { Request, Response, NextFunction } from 'express'
 
-import UserService from '../services/user'
+import CustomerService from '../services/customer'
 
 //const LocalStrategy = passportLocal.Strategy
 
@@ -15,8 +15,11 @@ export const googleStrategy = new GoogleTokenStrategy(
   },
   async (parsedToken: any, googleId: any, done: any) => {
     console.log('parsed token', parsedToken)
-    const { email, name, picture, givenName, familyName } = parsedToken.payload
-    const user = await UserService.findOrCreate(email)
+    //eslint-disable-next-line
+    const { email, name, picture, given_name, family_name } =
+      parsedToken.payload
+
+    const user = await CustomerService.findOrCreate(email)
 
     done(null, { user })
   }

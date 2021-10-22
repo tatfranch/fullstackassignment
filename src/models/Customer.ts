@@ -18,11 +18,11 @@ const CustomerSchema = new Schema<CustomerDocument>(
   {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    street: { type: String, required: true },
-    city: { type: String, required: true },
-    zip: { type: Number, required: true },
-    country: { type: String, required: true },
-    phone: { type: Number, required: true },
+    street: { type: String },
+    city: { type: String },
+    zip: { type: Number },
+    country: { type: String },
+    phone: { type: Number },
     email: { type: String, required: true, unique: true },
 
     order: [
