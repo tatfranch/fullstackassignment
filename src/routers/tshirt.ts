@@ -11,8 +11,8 @@ const router = Router()
 
 router.route('/').get(getTshirts)
 router.route('/:tshirtId').get(getOneTshirt)
-router.route('/:tshirtId').post(createTshirt)
+router.route('/').post(createTshirt)
 router.route('/:tshirtId').delete(deleteTshirt)
-router.route('/').post(updateTshirt)
+router.route('/').put(updateTshirt)
 
 export default router

@@ -1,12 +1,14 @@
-import Tshirt, { TshirtDocument } from '../models/Tshirt'
+import VariantTshirt, { TshirtDocument } from '../models/Tshirt'
 import { NotFoundError } from '../helpers/apiError'
 
-const create = async (tshirt: TshirtDocument): Promise<TshirtDocument> => {
-  return tshirt.save()
+const create = async (
+  variantTshirt: TshirtDocument
+): Promise<TshirtDocument> => {
+  return variantTshirt.save()
 }
 
 const findById = async (tshirtId: string): Promise<TshirtDocument> => {
-  const foundTshirt = await Tshirt.findById(tshirtId)
+  const foundTshirt = await VariantTshirt.findById(tshirtId)
 
   if (!foundTshirt) {
     throw new NotFoundError(`Tshirt ${tshirtId} not found`)
@@ -16,14 +18,14 @@ const findById = async (tshirtId: string): Promise<TshirtDocument> => {
 }
 
 const findAll = async (): Promise<TshirtDocument[]> => {
-  return Tshirt.find().sort({ itemType: 1, colour: 1 })
+  return VariantTshirt.find().sort({ itemType: 1, colour: 1 })
 }
 
 const update = async (
   tshirtId: string,
   update: Partial<TshirtDocument>
 ): Promise<TshirtDocument | null> => {
-  const foundTshirt = await Tshirt.findByIdAndUpdate(tshirtId, update, {
+  const foundTshirt = await VariantTshirt.findByIdAndUpdate(tshirtId, update, {
     new: true,
   })
 
@@ -37,7 +39,7 @@ const update = async (
 const deleteTshirt = async (
   tshirtId: string
 ): Promise<TshirtDocument | null> => {
-  const foundTshirt = Tshirt.findByIdAndDelete(tshirtId)
+  const foundTshirt = VariantTshirt.findByIdAndDelete(tshirtId)
 
   if (!foundTshirt) {
     throw new NotFoundError(`Tshirt ${tshirtId} not found`)

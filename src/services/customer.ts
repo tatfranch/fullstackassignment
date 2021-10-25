@@ -50,18 +50,16 @@ const deleteCustomer = async (
 
 type Profile = {
   email: string
-  name: string
-  picture: string
-  given_name: string
-  family_name: string
+  firstName: string
+  lastName: string
 }
 const findOrCreate = async (userProfile: Profile) => {
   // eslint-disable-next-line
-  const { email, name, picture, given_name, family_name } = userProfile
+  const { email, firstName, lastName } = userProfile
 
   const customer = await Customer.findOne({ email: email })
   if (!customer) {
-    const newCustomer = new Customer({ email, name, picture })
+    const newCustomer = new Customer({ email, firstName, lastName })
 
     const createdCustomer = await newCustomer.save()
     return createdCustomer

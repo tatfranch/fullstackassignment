@@ -1,25 +1,29 @@
 import { RequestHandler } from 'express'
 
-import Tshirt from '../models/Tshirt'
-import TshirtService from '../services/tshirt'
+import VariantTshirt from '../models/Tshirt'
+import VariantTshirtService from '../services/tshirt'
 
 export const getTshirts: RequestHandler = async (req, res, next) => {
-  res.json(await TshirtService.findAll())
+  res.json(await VariantTshirtService.findAll())
 }
 
 export const getOneTshirt: RequestHandler = async (req, res, next) => {
-  res.json(await TshirtService.findById(req.params.tshirtId))
+  res.json(await VariantTshirtService.findById(req.params.tshirtId))
 }
 
 export const createTshirt: RequestHandler = async (req, res, next) => {
-  res.json(await TshirtService.create(new Tshirt(req.body)))
+  console.log('XXXXXX', req.body)
+  res.json(await VariantTshirtService.create(new VariantTshirt(req.body)))
 }
 
 export const updateTshirt: RequestHandler = async (req, res, next) => {
-  const updateTshirt = await TshirtService.update(req.params.tshirtId, req.body)
+  const updateTshirt = await VariantTshirtService.update(
+    req.params.tshirtId,
+    req.body
+  )
   res.json(updateTshirt)
 }
 
 export const deleteTshirt: RequestHandler = async (req, res, next) => {
-  res.json(await TshirtService.deleteTshirt(req.params.tshirtId))
+  res.json(await VariantTshirtService.deleteTshirt(req.params.tshirtId))
 }

@@ -8,7 +8,6 @@ import cors from 'cors'
 import tshirtRouter from './routers/tshirt'
 import customerRouter from './routers/customer'
 import orderRouter from './routers/order'
-import variantTshirtRouter from './routers/variantTshirt'
 
 import loginRouter from './routers/login'
 import apiErrorHandler from './middlewares/apiErrorHandler'
@@ -34,7 +33,6 @@ app.use(passport.initialize())
 passport.use(googleStrategy)
 
 app.use('/api/v1/tshirts', tshirtRouter)
-app.use('/api/v1/tshirts', variantTshirtRouter)
 app.use('/api/v1/customer', customerRouter)
 app.use('/api/v1/order', orderRouter)
 

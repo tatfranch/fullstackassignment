@@ -16,10 +16,17 @@ export const googleStrategy = new GoogleTokenStrategy(
   async (parsedToken: any, googleId: any, done: any) => {
     console.log('parsed token', parsedToken)
     //eslint-disable-next-line
-    const { email, name, picture, given_name, family_name } =
-      parsedToken.payload
+    const {
+      email,
+      given_name: firstName,
+      family_name: lastName,
+    } = parsedToken.payload
 
-    const user = await CustomerService.findOrCreate(email)
+    const user = await CustomerService.findOrCreate({
+      email,
+      firstName,
+      lastName,
+    })
 
     done(null, { user })
   }
