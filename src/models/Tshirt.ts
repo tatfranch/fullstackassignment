@@ -2,6 +2,7 @@ import { Schema, model, Document } from 'mongoose'
 
 export interface TshirtDocument extends Document {
   description: string
+  image: string
   material: string
   colour: string
   size: string
@@ -13,6 +14,7 @@ export interface TshirtDocument extends Document {
 const TshirtSchema = new Schema<TshirtDocument>(
   {
     description: { type: String, required: true },
+    image: { type: String, required: true },
     material: { type: String, required: true },
     colour: { type: String, required: true },
     size: { type: String, required: true },
