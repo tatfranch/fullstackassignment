@@ -3,6 +3,7 @@ import GoogleLogin from 'react-google-login'
 import axios from 'axios'
 
 import './App.css'
+import Navbar from './components/navbar'
 
 type Response = {
   token: string
@@ -26,6 +27,8 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar />
+
       <GoogleLogin
         clientId="947159253545-cbhff446tna579cn8a9imobitug1r50r.apps.googleusercontent.com"
         buttonText="Login"
