@@ -17,7 +17,7 @@ const TshirtSchema = new Schema<TshirtDocument>(
     image: { type: String, required: true },
     material: { type: String, required: true },
     colour: { type: String, required: true },
-    size: { type: String, required: true },
+    size: { type: String },
     reference: { type: Number, required: true, unique: true },
     prize: { type: Number, required: true },
     order: [
