@@ -21,7 +21,14 @@ function GoogleFunc() {
 
     //const jwtToken = result.data.token
   }
-
+  const handleLogout = async () => {
+    // await axios({
+    //   method: 'get',
+    //   url: 'http://localhost:3000/api/v1/google/logout',
+    //   responseType: 'json',
+    // })
+    localStorage.removeItem('token')
+  }
   return (
     <>
       <GoogleLogin
@@ -31,6 +38,7 @@ function GoogleFunc() {
         onFailure={responseGoogle}
         cookiePolicy={'single_host_origin'}
       />
+      <button onClick={handleLogout}>Logout</button>
       {/* <GoogleLogout clientId="947159253545-cbhff446tna579cn8a9imobitug1r50r.apps.googleusercontent.com" /> */}
     </>
   )

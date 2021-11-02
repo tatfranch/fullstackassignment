@@ -6,7 +6,8 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Icon from '@mui/material/Icon'
 import tshirtIcon from '../images/t-shirt.png'
-import GoogleButon from '../components/googleButton'
+import GoogleButon from '../../GoogleButton'
+import CartModal from '../../CartModal'
 
 export default function Navbar() {
   return (
@@ -20,7 +21,7 @@ export default function Navbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             THE T-shirt STORE
           </Typography>
-
+          <CartModal />
           <GoogleButon />
         </Toolbar>
       </AppBar>

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import axios, { Method, AxiosResponse } from 'axios'
+import axios, { Method } from 'axios'
 
-const useAll = (route: string, requestMethod: Method | undefined) => {
-  const [data, setData] = useState<AxiosResponse<any>>()
+const useAll = <T>(route: string, requestMethod: Method | undefined) => {
+  const [data, setData] = useState<T[]>()
   const [error, setError] = useState()
 
   useEffect(() => {
@@ -13,10 +13,7 @@ const useAll = (route: string, requestMethod: Method | undefined) => {
           url: `http://localhost:3000/api/v1/${route}`,
           responseType: 'json',
         })
-        const x = (response: AxiosResponse<any>) => {
-          return setData(response)
-        }
-        x(finalResult)
+        setData(finalResult.data as T[])
       } catch (error: any) {
         console.log('error', error)
         setError(error)

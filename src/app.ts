@@ -9,7 +9,7 @@ import tshirtRouter from './routers/tshirt'
 import customerRouter from './routers/customer'
 import orderRouter from './routers/order'
 
-import loginRouter from './routers/login'
+import loginRouter from './routers/google'
 import apiErrorHandler from './middlewares/apiErrorHandler'
 import apiContentType from './middlewares/apiContentType'
 
@@ -36,8 +36,11 @@ app.use('/api/v1/tshirts', tshirtRouter)
 app.use('/api/v1/customer', customerRouter)
 app.use('/api/v1/order', orderRouter)
 
-app.use('/api/v1/google/login', loginRouter)
-
+app.use('/api/v1/google', loginRouter)
+// app.get('/logout', function (req, res) {
+//   req.logout()
+//   res.redirect('/')
+// })
 // Custom API error handler
 app.use(apiErrorHandler)
 
