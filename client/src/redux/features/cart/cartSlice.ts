@@ -5,7 +5,7 @@ interface CartState {
 }
 
 const initialState: CartState = {
-  value: ['xxx', 'lajfal'],
+  value: [],
 }
 
 const cartSlice = createSlice({
