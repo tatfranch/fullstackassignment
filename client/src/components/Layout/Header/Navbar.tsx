@@ -17,9 +17,11 @@ export default function Navbar() {
           <img src={tshirtIcon} height={25} width={25} alt="tshirt icon" />
         </Icon>
 
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          THE T-shirt STORE
-        </Typography>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ flexGrow: 1 }}
+        ></Typography>
         <CartModal />
         <GoogleButon />
       </Toolbar>

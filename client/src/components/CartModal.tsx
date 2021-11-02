@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 import useAll from '../custom-hooks/useAll'
 import Divider from '@material-ui/core/divider'
+import cartLogo from '../images/cart.png'
 
 //let's rock this redux
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
@@ -37,7 +38,9 @@ export default function BasicModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen}>
+        <img src={cartLogo} height={50} width={50} alt="cart icon" />
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
